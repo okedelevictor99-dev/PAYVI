@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+:root {
+  /* Button */
+  --color-primary: #5B4FE9;
+  --color-primary-hover: #6D62F5;
+  --color-primary-foreground: #F5F5FA;
+  --color-primary-shadow: rgba(91, 79, 233, 0.35);
+
+  --color-secondary: #13131F;
+  --color-secondary-hover: #1B1B29;
+  --color-secondary-foreground: #F5F5FA;
+  --color-secondary-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Input + shared text/surface tokens */
+  --color-foreground: #F5F5FA;
+  --color-muted-foreground: #8A8A9E;
+  --color-border: #22222E;
+  --color-input-bg: #13131F;
+  --color-focus-ring: rgba(91, 79, 233, 0.15);
+  --color-error: #F2555A;
+
+  /* Page background */
+  --color-background: #0A0A12;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* ✅ FIX 1: prevent scrollbar flash */
+/* html {
+  scrollbar-gutter: stable;
+} */
+
+/* Optional safety */
+
+body {
+  overflow-x: hidden;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter 0.35s ease-out;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
+}
